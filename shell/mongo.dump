@@ -1,0 +1,13 @@
+#!bin/bash
+today=$(date +%Y%m%d)
+now=$(date +%H%M%S)
+host=$1
+db_name=$2
+user=$3
+password=$4
+root=$5/mongo
+out_path=$root/$db_name/$today/$now/
+mongodump -h $host -d $db_name -u $user -p $password -o $out_path --gzip
+echo "======================"
+echo "OutPath: $out_path"
+echo "======================"

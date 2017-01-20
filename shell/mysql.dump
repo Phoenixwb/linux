@@ -1,0 +1,19 @@
+#!/bin/bash
+#root=$(cd `dirname $0`; pwd)
+root=$5/mysql
+host=$1
+db_name=$2
+mkdir $root
+mkdir $root/$db_name
+today=$(date +%Y%m%d)
+echo "enter the user name:"
+user=$3
+echo "enter the password:"
+password=$4
+out_path=$root/$db_name/$today
+mkdir $out_path
+now=$(date +%H%M%S)
+echo "======================="
+echo "OutPath:$out_path"
+echo "======================="
+mysqldump -h$host -u$user -p$password $db_name |gzip > $out_path/$now.mysql.gz
