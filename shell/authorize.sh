@@ -1,4 +1,6 @@
 #bin/sh
+#ssh-copy-id user@host
+#exit 1
 echo "check ssh key"
 cd ~
 if [ ! -d ".ssh/" ]; then
